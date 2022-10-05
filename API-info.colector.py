@@ -1,16 +1,19 @@
+#Import necessary libraries
 import pandas as pd
 from riotwatcher import LolWatcher
 import requests
 
+#Create DataFrame
 df_final = pd.DataFrame()
 
+#Enter your API Key, Regions and URL to scrap for top 100 summoners of the region
 api_key = input("Enter API Key: ")
 watcher = LolWatcher(api_key)
-
 region = input("Enter Region 1: ")
 region2 = input("Enter Region 2: ")
-
 url = input('Enter League of graph URL to scrap :')
+
+#Get headers for scrap
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,/;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Accept-Language': 'es-US,es;q=0.9,ko-KR;q=0.8,ko;q=0.7,es-419;q=0.6',
@@ -28,32 +31,41 @@ headers = {
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"Windows"',
 }
-response = requests.get('https://www.leagueofgraphs.com/rankings/summoners/kr', headers = headers)
+#Scrap and get top 100 summoners of the region
+response = requests.get(url, headers = headers)
 df_summoners = pd.read_html(response.text)[0]
 df_summoners = df_summoners.drop(7)
-
 df_summoners['Name'] = df_summoners['Name'].str.split(" KR").str[0]
-
 summoner_list = df_summoners['Name'].tolist()
 
+#Set count to 0 fo keep track
 count = 0
+
+#For loop to get info of the 50 last matches of each summoner
 for summoner in summoner_list:
 
     count +=1
+
+    #To start asking thing to the API, we first need the 'Puuid' which is a unique ID for each summoner
     try:
+        #To start asking thing to the API, we first need the 'Puuid' which is a unique ID for each summoner
         me = watcher.summoner.by_name(region, summoner)
-    
+
+        #By using this puuid we can get a the last matches of the summoner. The ammount is set to 50, but you can get upto 100 matches
         my_matches = watcher.match.matchlist_by_puuid(region2, me['puuid'], count = 50)
         
-        
+        #Now we iterate through each match and get the info of each match
         for match in my_matches:
                 
                 try:
                     match_detail_end = watcher.match.by_id(region2, match)
-                
+                    
+                    #We will only fecth info from classic games, not ARAMs
                     if match_detail_end["info"]["gameMode"] == "CLASSIC":
-                        
+
                         match_detail = watcher.match.timeline_by_match(region2, match)
+
+                        #Create dict for team1 and team2
                         team_1 = {"Gold": 0, "Level": 0, "Minions": 0, "Jungle_minions": 0, "Kills": 0, "Assists": 0, "Deaths": 0, "Plates": 0, "Towers": 0, "Dragons": 0, "Heralds": 0, "Sight_wards": 0, "Control_wards": 0}
                         team_2 = {"Gold": 0, "Level": 0, "Minions": 0, "Jungle_minions": 0, "Kills": 0, "Assists": 0, "Deaths": 0, "Plates": 0, "Towers": 0, "Dragons": 0, "Heralds": 0, "Sight_wards": 0, "Control_wards": 0}
                         
