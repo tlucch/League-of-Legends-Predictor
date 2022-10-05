@@ -69,6 +69,7 @@ for summoner in summoner_list:
                         team_1 = {"Gold": 0, "Level": 0, "Minions": 0, "Jungle_minions": 0, "Kills": 0, "Assists": 0, "Deaths": 0, "Plates": 0, "Towers": 0, "Dragons": 0, "Heralds": 0, "Sight_wards": 0, "Control_wards": 0}
                         team_2 = {"Gold": 0, "Level": 0, "Minions": 0, "Jungle_minions": 0, "Kills": 0, "Assists": 0, "Deaths": 0, "Plates": 0, "Towers": 0, "Dragons": 0, "Heralds": 0, "Sight_wards": 0, "Control_wards": 0}
                         
+                        #Iteration
                         for i in range(1, 6): 
                            team_1["Gold"] = team_1["Gold"] + match_detail["info"]["frames"][14]["participantFrames"][f"{i}"]["totalGold"]
                            team_1["Level"] = team_1["Level"] + match_detail["info"]["frames"][14]["participantFrames"][f"{i}"]["level"]
