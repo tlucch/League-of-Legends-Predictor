@@ -41,19 +41,19 @@ The code for both the scarping and the data collection can be found in the `API-
 ### Feature Selection
 Although we extracted 13 different features, maybe not all of them are really influence in the outcome of the game. Thats why, before training and testing our models we have to select our features. Using the data extracted from the 50 last matches of the top 100 Korea players, which can be found in the `KR-History.xlsx` excel file, a correlation matrix was made, which showed the following results:
 
-
+<br />
 <p align = "center">
   <img src = "Images/Correlation Heatmap.png" width = 900>
 </p>
-
+<br />
 
 Nice! We can see lots of interesting variables correlations between different variables. But our target variable is "Win", so lets see our correlations specifilacy using our "Win" variable:
 
-
+<br />
 <p align = "center">
   <img src = "Images/Win Correlation Heatmap.png" width = 500>
 </p>
-
+<br />
 
 So now we can see our most significant variables are: `Gold_diff`, `Gold`, `Level`, `Kills`, `Deaths`, `Towers` and `Assists`, while `Sight_wards`, `Control_Wards` and `Plates` seem to how almost no impact in the game outcome. So, in conclusion, we can test our models using our original DataFrame with all our features and a reduced DataFrame withouth `Sight_wards`, `Control_Wards` and `Plates`.
 
