@@ -13,11 +13,24 @@ import matplotlib.pyplot as plt
 excel = input("Enter excel file address: ")
 df = pd.read_excel(excel)
 
+print(len(df.index))
+
+#we drop duplicates because its probable that many games are the same as players use to play with each other
+df = df.drop_duplicates()
+
+print(len(df.index))
+
 #Generate correlation matrix in orther to see most important values
 corr = df.corr()
 plt.figure(figsize=(16, 6))
 heatmap = sns.heatmap(df.corr(), vmin=-1, vmax=1, annot=True)
 heatmap.set_title('Correlation Heatmap', fontdict={'fontsize':18}, pad=12)
+
+#Generate correlation matrix only of win column
+fig, ax = plt.subplots(figsize=((6, 6)))
+#plot matrix
+sns.heatmap(corr["Win"].sort_values(ascending=False).drop("Win").to_frame(), vmin=-1, vmax=1, annot=True,cmap="GnBu")
+plt.show()
 
 x_keep = ['Level', 'Minions', 'Jungle_minions',	'Kills', 'Assists',	'Deaths', 'Plates',	'Towers', 'Dragons', 'Heralds', 'Sight_wards', 'Control_wards', 'Gold_diff']
 X = df[x_keep]
