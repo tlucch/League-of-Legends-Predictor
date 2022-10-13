@@ -58,16 +58,160 @@ So now we can see our most significant variables are: `Gold_diff`, `Gold`, `Leve
 
 ## Model Testing
 
-Now that we know our features, we can start training and testing our models. For this project I decided to test 3 well known classification algorithm:
+Now that we know our features, we can start training and testing our models. For this project I decided to test 4 well known classification algorithm:
 
 * `Logistic Regression`
+* `Decision Tree`
 * `Random Forest`
 * `Support Vector Machine`
 
 But before testing and analyzing our models, the first thing we need to do is splitour data into training and testing. For this particular case I decided to use the 33% testing split. Now yes, lets go to the fun part!
 
-### Logistic Regression
+### Logistic Regression Original DF
 
 Of course, when we speak about classification models the first thing that comes to our mind is "Logistic Regression", so thats what we did! 
+First, the model was trained using the original dataframe with the following results:
+
+
+****CLASSIFICATION REPORT - TRAINING DATA****
+```` 
+              precision    recall  f1-score   support
+
+           0     0.7963    0.7968    0.7965      1673
+           1     0.7944    0.7940    0.7942      1655
+
+    accuracy                         0.7954      3328
+   macro avg     0.7954    0.7954    0.7954      3328
+weighted avg     0.7954    0.7954    0.7954      3328
+````
+****CLASSIFICATION REPORT - TEST DATA****
+```` 
+              precision    recall  f1-score   support
+
+           0     0.8157    0.8187    0.8172       811
+           1     0.8220    0.8191    0.8205       829
+
+    accuracy                         0.8189      1640
+   macro avg     0.8189    0.8189    0.8189      1640
+weighted avg     0.8189    0.8189    0.8189      1640 
+```` 
+
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/LogReg Original.png" width = 800>
+</p>
+<br />
+
+OMG! What an excellent start! We got a recall of 80% recall on the train data and a 82% recall on the test data, which means our model is predicting 82% of the results correctly. In addition, the ROC-AUC curve looks excelent, it seems we have no over or underfitting. So now, lets pass see how this model performs with the reduced DataFrame.
+
+### Logistic Regression Reduced DF
+
+****CLASSIFICATION REPORT - TRAINING DATA****
+```` 
+              precision    recall  f1-score   support
+
+           0     0.8002    0.7998    0.8000      1673
+           1     0.7977    0.7982    0.7979      1655
+
+    accuracy                         0.7990      3328
+   macro avg     0.7990    0.7990    0.7990      3328
+weighted avg     0.7990    0.7990    0.7990      3328
+```` 
+****CLASSIFICATION REPORT - TEST DATA****
+```` 
+              precision    recall  f1-score   support
+
+           0     0.8156    0.8126    0.8141       811
+           1     0.8173    0.8203    0.8188       829
+
+    accuracy                         0.8165      1640
+   macro avg     0.8165    0.8164    0.8164      1640
+weighted avg     0.8165    0.8165    0.8165      1640
+```` 
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/LogReg Reduced.png" width = 800>
+</p>
+<br />
+
+Wow! This results are also awesome! In comparison to the original DataFrame Looks like it did a it better with the training set and a bit worse with the test data. Nevertheless, the diference is minimum, such that, when rounded, the training data got an 80% recall and the test an 82%, the same as the original data.
+
+### Decision Tree Original DF
+
+The next model we used is "Decsision Tree". Using the original DataFrame, we got the following results:
+
+****CLASSIFICATION REPORT - TRAINING DATA****
+````
+              precision    recall  f1-score   support
+
+           0     1.0000    1.0000    1.0000      1673
+           1     1.0000    1.0000    1.0000      1655
+
+    accuracy                         1.0000      3328
+   macro avg     1.0000    1.0000    1.0000      3328
+weighted avg     1.0000    1.0000    1.0000      3328
+````
+****CLASSIFICATION REPORT - TEST DATA****
+````
+              precision    recall  f1-score   support
+
+           0     0.7484    0.7263    0.7372       811
+           1     0.7397    0.7612    0.7503       829
+
+    accuracy                         0.7439      1640
+   macro avg     0.7441    0.7437    0.7437      1640
+weighted avg     0.7440    0.7439    0.7438      1640
+````
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/Tree Original.png" width = 800>
+</p>
+<br />
+
+Well, it seems this model perfoms worst than the previous one as we got a 74% recall. Nevertheless, this is still an awesome result! But we want to stick with our best model. So... Im very sorry Decision Tree, but today is not you day :(
+
+### Decision Tree Reduced DF
+Lets see how it does with the reduced DataFrame.
+
+****CLASSIFICATION REPORT - TRAINING DATA****
+````
+              precision    recall  f1-score   support
+
+           0     1.0000    1.0000    1.0000      1673
+           1     1.0000    1.0000    1.0000      1655
+
+    accuracy                         1.0000      3328
+   macro avg     1.0000    1.0000    1.0000      3328
+weighted avg     1.0000    1.0000    1.0000      3328
+````
+****CLASSIFICATION REPORT - TEST DATA****
+````
+              precision    recall  f1-score   support
+
+           0     0.7617    0.7645    0.7631       811
+           1     0.7688    0.7660    0.7674       829
+
+    accuracy                         0.7652      1640
+   macro avg     0.7652    0.7652    0.7652      1640
+weighted avg     0.7653    0.7652    0.7652      1640
+````
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/Tree Reduced.png" width = 800>
+</p>
+<br />
+
+Ok, we got better results, I would say excelent results. A 77% recall? Nice. But our Logisitc Regression still performed better. So... Im very sorry Decision Tree, but today is not you day :(
+
+
+
 
 
