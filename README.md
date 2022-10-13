@@ -35,7 +35,8 @@ Although we can gather lots of information from this API, I decided to get the f
 
 For this project I decided to use the info of the last 50 games played by the top 100 Korea players. To get this top 100 players I scrapped the League of Graph Korea ranking (League of Graphs is a web that shows different League of Legends Stats).
 
-The code for both the scarping and the data collection can be found in the `API-info-colector.py` file.
+> **Note**
+> The code for both the scarping and the data collection can be found in the `API-info-colector.py` file.
 
 ## Feature Selection
 Although we extracted 13 different features, maybe not all of them are really influence in the outcome of the game. Thats why, before training and testing our models we have to select our features. Using the data extracted from the 50 last matches of the top 100 Korea players, which can be found in the `KR-History.xlsx` excel file, a correlation matrix was made, which showed the following results:
@@ -57,6 +58,8 @@ Nice! We can see lots of interesting variables correlations between different va
 So now we can see our most significant variables are: `Gold_diff`, `Gold`, `Level`, `Kills`, `Deaths`, `Towers` and `Assists`, while `Sight_wards`, `Control_Wards` and `Plates` seem to how almost no impact in the game outcome. So, in conclusion, we can test our models using our original DataFrame with all our features and a reduced DataFrame withouth `Sight_wards`, `Control_Wards` and `Plates`.
 
 ## Model Testing
+> **Note**
+> The code for all the tests can be found in the `classification-models-testing.ipynb` file/notebook
 
 Now that we know our features, we can start training and testing our models. For this project I decided to test 4 well known classification algorithm:
 
