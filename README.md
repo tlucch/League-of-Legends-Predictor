@@ -4,10 +4,11 @@
 This projects aim is to create a classification model to predict the outcome of league of legends games using info from the minute 14 of the game.
 Why minute 14? For the people who don't know much about the game, this is the minute in which tower plates (a feature of the game) fall, and this particular event marks the end of the early games and the start of the middle game. So the real aim of this model is to predict the outcome of a League of LEgends game using as input the early game performance of the team
 
-To achive this we have to follow to steps:
+To achive this we have to follow the following steps:
 
 * `Data Collection`
-* `Classification Model Development`
+* `Feature Selection`
+* `Model Testing`
 
 
 ## Data Collection
@@ -36,9 +37,7 @@ For this project I decided to use the info of the last 50 games played by the to
 
 The code for both the scarping and the data collection can be found in the `API-info-colector.py` file.
 
-## Classification Model Development
-
-### Feature Selection
+## Feature Selection
 Although we extracted 13 different features, maybe not all of them are really influence in the outcome of the game. Thats why, before training and testing our models we have to select our features. Using the data extracted from the 50 last matches of the top 100 Korea players, which can be found in the `KR-History.xlsx` excel file, a correlation matrix was made, which showed the following results:
 
 <br />
@@ -57,12 +56,18 @@ Nice! We can see lots of interesting variables correlations between different va
 
 So now we can see our most significant variables are: `Gold_diff`, `Gold`, `Level`, `Kills`, `Deaths`, `Towers` and `Assists`, while `Sight_wards`, `Control_Wards` and `Plates` seem to how almost no impact in the game outcome. So, in conclusion, we can test our models using our original DataFrame with all our features and a reduced DataFrame withouth `Sight_wards`, `Control_Wards` and `Plates`.
 
-### Model Testing
+## Model Testing
 
 Now that we know our features, we can start training and testing our models. For this project I decided to test 3 well known classification algorithm:
 
 * `Logistic Regression`
 * `Random Forest`
 * `Support Vector Machine`
+
+But before testing and analyzing our models, the first thing we need to do is splitour data into training and testing. For this particular case I decided to use the 33% testing split. Now yes, lets go to the fun part!
+
+### Logistic Regression
+
+Of course, when we speak about classification models the first thing that comes to our mind is "Logistic Regression", so thats what we did! 
 
 
