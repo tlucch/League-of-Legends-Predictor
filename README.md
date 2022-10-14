@@ -214,7 +214,83 @@ weighted avg     0.7653    0.7652    0.7652      1640
 
 Ok, we got better results, I would say excelent results. A 77% recall? Nice. But our Logisitc Regression still performed better. So... Im very sorry Decision Tree, but today is not you day :(
 
+### Random Forest Original DF
+Finally, lets evaluate our last model "Random Forest" starting with the original DataFrame:
 
+****CLASSIFICATION REPORT - TRAINING DATA****
+````
+              precision    recall  f1-score   support
 
+           0     0.9994    1.0000    0.9997      1673
+           1     1.0000    0.9994    0.9997      1655
 
+    accuracy                         0.9997      3328
+   macro avg     0.9997    0.9997    0.9997      3328
+weighted avg     0.9997    0.9997    0.9997      3328
+````
+****CLASSIFICATION REPORT - TEST DATA****
+````
+              precision    recall  f1-score   support
 
+           0     0.8133    0.8113    0.8123       811
+           1     0.8159    0.8179    0.8169       829
+
+    accuracy                         0.8146      1640
+   macro avg     0.8146    0.8146    0.8146      1640
+weighted avg     0.8146    0.8146    0.8146      1640
+````
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/Random Original.png" width = 800>
+</p>
+<br />
+
+Clearly, League of Legends game results are more predictable than I thought. Its the third model that returns excelente results. We got a 81% recall which, althought its still under the Logistic Regression model, its still a consideraly high result.
+
+### Random Forest Reduced DF
+With the reduced DataFrame, Random Forest got the following results:
+
+****CLASSIFICATION REPORT - TRAINING DATA****
+````
+              precision    recall  f1-score   support
+
+           0     1.0000    1.0000    1.0000      1673
+           1     1.0000    1.0000    1.0000      1655
+
+    accuracy                         1.0000      3328
+   macro avg     1.0000    1.0000    1.0000      3328
+weighted avg     1.0000    1.0000    1.0000      3328
+````
+****CLASSIFICATION REPORT - TEST DATA****
+
+````
+              precision    recall  f1-score   support
+
+           0     0.8002    0.8101    0.8051       811
+           1     0.8120    0.8022    0.8070       829
+
+    accuracy                         0.8061      1640
+   macro avg     0.8061    0.8061    0.8061      1640
+weighted avg     0.8062    0.8061    0.8061      1640
+````
+****CONFUSION MATRIX AND ROC-AUC VISUALIZATION****
+
+<br />
+<p align = "left">
+  <img src = "Images/Random Reduced.png" width = 800>
+</p>
+<br />
+
+Again some awesome results, an 80% recall, but is under the original DataFrame results and thus, below the Logistic Regression.
+
+## Conclusion
+
+After reviewing the data carefully, we can reach variuos conlclusions. In the first place, it is clear that a predictive model can be made with League of Legends because all 3 models got satisfactory recall results. Secondly, it seems that the original DataFrame serves best as training data rather the the reduced DataFrame, so `Sight_wards`, `Control_Wards` and `Plates` seem to be important even do they didnt have a high correlations with the wins. And finaly, the Logistic Regression model seems to be the most apropiate algorithm for this data. This doesnt mean that therest are not good, Random Forest even got similiar results, but we were looking for the best of the best.
+
+## Next Steps
+
+As you may have noticed in the title, this is version 1 of this project, which means I would like to make a version 2. My idea for this second version would be, in fisrt place, to get a more extense and diverse data set, which would allow me to recofirm and adjust the results. Then, it would be good to test other algorithms, such as K-neighbors, Support Vector Machine, Naive Bayes, XGBoost and even Neural Networks.
+
+Thank you very much for reading, I hope you enjoyed this project as much as I did. Bye :)
