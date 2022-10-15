@@ -1,7 +1,7 @@
 # League of Legends Predictor V1.0.0
 
 ## Introduction
-This projects aim is to create a classification model to predict the outcome of league of legends games using info from the minute 14 of the game.
+This projects aim is to create a Classification Model able to predict the outcome of League of Legends games using info from the minute 14 of the match.
 Why minute 14? For the people who don't know much about the game, this is the minute in which tower plates (a feature of the game) fall, and this particular event marks the end of the early games and the start of the middle game. So the real aim of this model is to predict the outcome of a League of LEgends game using as input the early game performance of the team
 
 To achive this we have to follow the following steps:
