@@ -287,7 +287,9 @@ Again some awesome results, an 80% recall, but is under the original DataFrame r
 
 ## Conclusion
 
-After reviewing the data carefully, we can reach variuos conlclusions. In the first place, it is clear that a predictive model can be made with League of Legends because all 3 models got satisfactory recall results. Secondly, it seems that the original DataFrame serves best as training data rather the the reduced DataFrame, so `Sight_wards`, `Control_Wards` and `Plates` seem to be important even do they didnt have a high correlations with the wins. And finaly, the Logistic Regression model seems to be the most apropiate algorithm for this data. This doesnt mean that therest are not good, Random Forest even got similiar results, but we were looking for the best of the best.
+After reviewing the data carefully, we can reach variuos conlclusions. In the first place, it is clear that a predictive model can be made with League of Legends because all 3 models got satisfactory recall results. Secondly, it seems that the original DataFrame serves best as training data rather the the reduced DataFrame, so `Sight_wards`, `Control_Wards` and `Plates` seem to be important even do they didnt have a high correlations with the wins. In addition, the Logistic Regression model seems to be the most apropiate algorithm for this data. This doesnt mean that therest are not good, Random Forest even got similiar results, but we were looking for the best of the best.
+
+Finally, and probably the most important conclusion, is that we devolped a model capable of predicting with 82% accuracy. This means that only using information from the minute 14 of the game, the model predicts correctly the outcome of the game 82% of the times. Pretty nice, isn't it?
 
 ## Next Steps
 
