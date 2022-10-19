@@ -176,7 +176,7 @@ weighted avg     0.7440    0.7439    0.7438      1640
 </p>
 <br />
 
-Well, it seems this model perfoms worst than the previous one as we got a 74% recall. Nevertheless, this is still an awesome result! But we want to stick with our best model. So... Im very sorry Decision Tree, but today is not you day :(
+Well, it seems this model perfoms worst than the previous one as we got a 74% recall. Nevertheless, this is still an awesome result! But we want to stick with our best model.
 
 ### Decision Tree Reduced DF
 Lets see how it does with the reduced DataFrame.
@@ -294,4 +294,4 @@ Finally, and probably the most important conclusion, is that we devolped a model
 
 As you may have noticed in the title, this is version 1 of this project, which means I would like to make a version 2. My idea for this second version would be, in fisrt place, to get a more extense and diverse data set, which would allow me to recofirm and adjust the results. Then, it would be good to test other algorithms, such as K-neighbors, Support Vector Machine, Naive Bayes, XGBoost and even Neural Networks.
 
-Thank you very much for reading, I hope you enjoyed this project as much as I did. Bye :)
+Thank you very much for reading, I hope you enjoyed this project as much as I did. Bye <3
