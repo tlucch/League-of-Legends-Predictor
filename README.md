@@ -61,7 +61,7 @@ So now we can see our most significant variables are: `Gold_diff`, `Gold`, `Leve
 > **Note**
 > The code for all the tests can be found in the `classification-models-testing.ipynb` file/notebook
 
-Now that we know our features, we can start training and testing our models. For this project I decided to test 4 well known classification algorithm:
+Now that we know our features, we can start training and testing our models. For this project I decided to test 3 well known classification algorithm:
 
 * `Logistic Regression`
 * `Decision Tree`
