@@ -66,7 +66,6 @@ Now that we know our features, we can start training and testing our models. For
 * `Logistic Regression`
 * `Decision Tree`
 * `Random Forest`
-* `Support Vector Machine`
 
 But before testing and analyzing our models, the first thing we need to do is splitour data into training and testing. For this particular case I decided to use the 33% testing split. Now yes, lets go to the fun part!
 
