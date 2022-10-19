@@ -13,7 +13,7 @@ To achive this we have to follow the following steps:
 
 ## Data Collection
 
-In order to get the data we must connect to the Riot API, more specifically to the "/lol/match/v5/matches/{matchId}/timeline" Riot API. With this API we can access to the info of every player minute by minute. This means we can get info from and up to the minute 14 of the game.
+In order to get the data we must connect to the Riot API, more specifically to the `/lol/match/v5/matches/{matchId}/timeline` Riot API. With this API we can access to the info of every player minute by minute. This means we can get info from and up to the minute 14 of the game.
 
 Although we can gather lots of information from this API, I decided to get the following parameters for each team:
 
