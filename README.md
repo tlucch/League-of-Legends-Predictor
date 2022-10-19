@@ -2,7 +2,7 @@
 
 <br />
 <p align = "center">
-  <img src = "Images/Main Image.png" width = 500>
+  <img src = "Images/Main picture.png" width = 500>
 </p>
 <br />
 
